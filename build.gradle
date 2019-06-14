@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+group 'com.wise'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    maven { url 'http://maven.aliyun.com/nexus/content/repositories/central/' }
+    mavenCentral()
+    jcenter()
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+    maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local/' }
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/io.netty/netty-all
+    compile group: 'io.netty', name: 'netty-all', version: '4.1.10.Final'
+    // https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java
+    compile group: 'com.google.protobuf', name: 'protobuf-java', version: '3.8.0'
+    // https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java-util
+    compile group: 'com.google.protobuf', name: 'protobuf-java-util', version: '3.8.0'
+    // https://mvnrepository.com/artifact/junit/junit
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+}
