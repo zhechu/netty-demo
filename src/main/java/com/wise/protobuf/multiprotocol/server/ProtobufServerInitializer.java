@@ -1,6 +1,6 @@
-package com.wise.protobuf.server;
+package com.wise.protobuf.multiprotocol.server;
 
-import com.wise.protobuf.StudentProto;
+import com.wise.protobuf.multiprotocol.TaskProtobufWrapper;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
@@ -20,7 +20,7 @@ public class ProtobufServerInitializer extends ChannelInitializer<SocketChannel>
         ChannelPipeline pipeline = ch.pipeline();
 
         pipeline.addLast(new ProtobufVarint32FrameDecoder())
-                .addLast(new ProtobufDecoder(StudentProto.Student.getDefaultInstance()))
+                .addLast(new ProtobufDecoder(TaskProtobufWrapper.TaskProtocol.getDefaultInstance()))
                 .addLast(new ProtobufVarint32LengthFieldPrepender())
                 .addLast(new ProtobufEncoder())
                 .addLast(new ProtobufServerHandler());

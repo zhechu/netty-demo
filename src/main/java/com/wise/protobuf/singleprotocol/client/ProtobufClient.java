@@ -1,4 +1,4 @@
-package com.wise.protobuf.client;
+package com.wise.protobuf.singleprotocol.client;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;

@@ -1,5 +1,6 @@
 package com.wise.protobuf;
 
+import com.wise.protobuf.singleprotocol.StudentProto;
 import org.junit.Test;
 
 /**

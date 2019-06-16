@@ -1,6 +1,6 @@
-package com.wise.protobuf.client;
+package com.wise.protobuf.singleprotocol.client;
 
-import com.wise.protobuf.StudentProto;
+import com.wise.protobuf.singleprotocol.StudentProto;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 

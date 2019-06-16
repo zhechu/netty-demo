@@ -1,4 +1,4 @@
-package com.wise.protobuf.server;
+package com.wise.protobuf.multiprotocol.server;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;

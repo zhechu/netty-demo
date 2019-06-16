@@ -1,8 +1,8 @@
 syntax = "proto2";
 
-package com.wise.protobuf;
+package com.wise.protobuf.singleprotocol;
 
-option java_package = "com.wise.protobuf";
+option java_package = "com.wise.protobuf.singleprotocol";
 option java_outer_classname = "StudentProto";
 
 message Student {
