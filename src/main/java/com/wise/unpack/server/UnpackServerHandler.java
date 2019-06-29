@@ -1,7 +1,6 @@
 package com.wise.unpack.server;
 
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
+import com.wise.unpack.CustomProtocol;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
@@ -12,22 +11,27 @@ import java.util.UUID;
  * @author lingyuwang
  * @date 2019-06-07 17:30
  */
-public class UnpackServerHandler extends SimpleChannelInboundHandler<ByteBuf> {
+public class UnpackServerHandler extends SimpleChannelInboundHandler<CustomProtocol> {
 
     private int count;
 
     @Override
-    protected void channelRead0(ChannelHandlerContext ctx, ByteBuf msg) throws Exception {
-        byte[] buffer = new byte[msg.readableBytes()];
-        msg.readBytes(buffer);
+    protected void channelRead0(ChannelHandlerContext ctx, CustomProtocol msg) throws Exception {
+        int length = msg.getLength();
+        byte[] content = msg.getContent();
 
-        String message = new String(buffer, Charset.forName("UTF-8"));
-
-        System.out.println("server receive msg body: " + message);
+        System.out.println("server receive msg length: " + length);
+        System.out.println("server receive msg content: " + new String(content, Charset.forName("UTF-8")));
         System.out.println("server receive msg count: " + (++this.count));
 
-        ByteBuf responseByteBuf = Unpooled.copiedBuffer(UUID.randomUUID().toString(), Charset.forName("UTF-8"));
-        ctx.writeAndFlush(responseByteBuf);
+        String responseMessage = UUID.randomUUID().toString();
+        byte[] responseContent = responseMessage.getBytes("UTF-8");
+
+        CustomProtocol customProtocol = new CustomProtocol();
+        customProtocol.setLength(responseContent.length);
+        customProtocol.setContent(responseContent);
+
+        ctx.writeAndFlush(customProtocol);
     }
 
 }
