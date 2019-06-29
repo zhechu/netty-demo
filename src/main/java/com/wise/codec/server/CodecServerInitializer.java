@@ -1,6 +1,6 @@
 package com.wise.codec.server;
 
-import com.wise.codec.CustomBytoToMessageDecoder;
+import com.wise.codec.CustomByteToMessageDecoder;
 import com.wise.codec.CustomLongToStringDecoder;
 import com.wise.codec.CustomMessageToByteEncoder;
 import io.netty.channel.ChannelInitializer;
@@ -17,7 +17,7 @@ public class CodecServerInitializer extends ChannelInitializer<SocketChannel> {
     protected void initChannel(SocketChannel ch) throws Exception {
         ChannelPipeline channelPipeline = ch.pipeline();
 
-        channelPipeline.addLast(new CustomBytoToMessageDecoder());
+        channelPipeline.addLast(new CustomByteToMessageDecoder());
         channelPipeline.addLast(new CustomLongToStringDecoder());
         channelPipeline.addLast(new CustomMessageToByteEncoder());
         channelPipeline.addLast(new CodecServerHandler());

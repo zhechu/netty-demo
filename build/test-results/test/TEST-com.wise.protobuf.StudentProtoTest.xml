@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.wise.protobuf.StudentProtoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-06-09T02:28:12" hostname="lingyuwang" time="0.124">
+  <properties/>
+  <testcase name="build" classname="com.wise.protobuf.StudentProtoTest" time="0.124"/>
+  <system-out><![CDATA[张三
+20
+广州
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
