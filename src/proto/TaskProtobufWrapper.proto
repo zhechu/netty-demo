@@ -1,7 +1,8 @@
 syntax = "proto3";
 
-package com.wise.protobuf.multiprotocol;
-option java_package = "com.wise.protobuf.multiprotocol";
+package com.wise.netty.protobuf.multiprotocol;
+
+option java_package = "com.wise.netty.protobuf.multiprotocol";
 option java_outer_classname = "TaskProtobufWrapper";
 
 // netty 编解码的根对象
