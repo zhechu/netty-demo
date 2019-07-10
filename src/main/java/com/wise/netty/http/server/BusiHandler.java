@@ -22,6 +22,8 @@ public class BusiHandler extends ChannelInboundHandlerAdapter {
         response.headers().set(
                 HttpHeaderNames.CONTENT_TYPE,
                 "text/plain;charset=UTF-8");
+
+        // 响应后关闭连接
         ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);
     }
 

@@ -21,7 +21,7 @@ import java.net.URI;
  */
 public class HttpClient {
 
-    private static final boolean SSL = true;
+    private static final boolean SSL = false;
 
     public void connect(String host, int port) throws Exception {
         final SslContext sslCtx;
@@ -29,6 +29,8 @@ public class HttpClient {
             // netty为我们提供的ssl加密，缺省
             SelfSignedCertificate ssc = new SelfSignedCertificate();
             sslCtx = SslContextBuilder.forServer(ssc.certificate(), ssc.privateKey()).build();
+        } else {
+            sslCtx = null;
         }
 
         EventLoopGroup workerGroup = new NioEventLoopGroup();
@@ -81,4 +83,5 @@ public class HttpClient {
         HttpClient client = new HttpClient();
         client.connect("127.0.0.1", 8899);
     }
+
 }

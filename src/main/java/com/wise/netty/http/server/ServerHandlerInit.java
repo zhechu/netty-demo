@@ -41,6 +41,5 @@ public class ServerHandlerInit extends ChannelInitializer<SocketChannel> {
 
         // 业务处理器
         ph.addLast("busi", new BusiHandler());
-
     }
 }

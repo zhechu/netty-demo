@@ -16,7 +16,7 @@ public class HttpServer {
 
     private static EventLoopGroup group = new NioEventLoopGroup();
     private static ServerBootstrap b = new ServerBootstrap();
-    private static final boolean SSL = true;
+    private static final boolean SSL = false;
 
     public static void main(String[] args) throws Exception {
         final SslContext sslCtx;
@@ -24,6 +24,8 @@ public class HttpServer {
             // netty为我们提供的ssl加密，缺省
             SelfSignedCertificate ssc = new SelfSignedCertificate();
             sslCtx = SslContextBuilder.forServer(ssc.certificate(), ssc.privateKey()).build();
+        } else {
+            sslCtx = null;
         }
         try {
             b.group(group);
